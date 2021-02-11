@@ -1,5 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
+#If using termux
+import subprocess
+import shlex
 
 x = [1,2,3,4,2,1]
 #Assuming length of x(n) and h(n) as same
@@ -30,7 +33,7 @@ print ("DFT of x(n)\n",DFT(x))
 print()
 print ("DFT of h(n)\n",DFT(h))
 
-fig , ax = plt.subplots(nrows = 3, ncols = 2, figsize=(10,12))
+fig , ax = plt.subplots(nrows = 3, ncols = 2, figsize=(12,14))
 
 ax[0][0].stem(range(0,N),x)
 ax[0][0].set_title(r'$x(n)$')
@@ -55,4 +58,10 @@ ax[2][0].grid()
 ax[2][1].stem(range(0,N),np.angle(DFT(h)))
 ax[2][1].set_title(r'$phase(DFT(h))$')
 ax[2][1].grid()
-plt.show()
+#If using termux
+plt.savefig('../figs/ee18btech11012.pdf')
+plt.savefig('../figs/ee18btech11012.eps')
+subprocess.run(shlex.split("termux-open ../figs/ee18btech11012.pdf"))
+#else
+#plt.show()
+
