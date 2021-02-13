@@ -195,37 +195,22 @@ we know that
 \begin{align}
     X(k) \triangleq \sum_{n=0}^{N-1}x(n)e^{-j2\pi kn/N},\quad k=0,1, \ldots, N-1
 \end{align}
-This can be expressed interms of matrices as:
-
+Let $W_N^{nk}=e^{-j2\pi kn/N} $  then this can be expressed interms of matrices as:
 \begin{equation}
-\setlength\arraycolsep{0.000000001pt} 
-\begin{bmatrix} X(0) \\ X(1) \\ X(2) \\ X(3) \\ X(4) \\ X(5) \end{bmatrix}
+ \begin{bmatrix} X(0) \\ X(1) \\ X(2) \\ X(3) \\ X(4) \\ X(5) \end{bmatrix}
 =
 \begin{bmatrix}
-1 & 1 & 1 & 1 & 1 & 1 \\ 1 & e^{-j2\pi(1)/N}& e^{-j2\pi(2)/N}& e^{-j2\pi (3)/N} & e^{-j2\pi (4)/N}& e^{-j2\pi (5)/N}\\1 & e^{-j2\pi(2)/N}& e^{-j2\pi(4)/N}& e^{-j2\pi (6)/N} & e^{-j2\pi (8)/N}& e^{-j2\pi (10)/N}\\1 & e^{-j2\pi(3)/N}& e^{-j2\pi(6)/N}& e^{-j2\pi (9)/N} & e^{-j2\pi (12)/N}& e^{-j2\pi (15)/N}\\1 & e^{-j2\pi(4)/N}& e^{-j2\pi(8)/N}& e^{-j2\pi (12)/N} & e^{-j2\pi (16)/N}& e^{-j2\pi (20)/N}\\1 & e^{-j2\pi(5)/N}& e^{-j2\pi(10)/N}& e^{-j2\pi (15)/N} & e^{-j2\pi (20)/N}& e^{-j2\pi (25)/N}
+1 & 1 & 1 & 1 & 1 & 1 \\ 1 & W_N^1& W_N^2& W_N^3 & W_N^4 & W_N^5\\1 & W_N^2 & W_N^4 & W_N^6 & W_N^8 & W_N^{10}\\1 & W_N^3 & W_N^6 & W_N^9 & W_N^{12} & W_N^{15}\\1 & W_N^4 & W_N^8 & W_N^{12} & W_N^{16} & W_N^{20}\\1 & W_N^5 & W_N^{10} & W_N^{15} & W_N^{20} &W_N^{25}
 \end{bmatrix}%
 \begin{bmatrix}
 x(0) \\ x(1) \\ x(2) \\ x(3) \\ x(4) \\x(5)
 \end{bmatrix}
+
 \right
 \end{equation}
 \item 
-Given that  x(n) = \cbrak{\underset{\uparrow}{1},2,3,4,2,1} \\ So,N=6 then above equation becomes
+Given that  x(n) = \cbrak{\underset{\uparrow}{1},2,3,4,2,1} \\ and As,N=6 then above equation on multiplying matrices  becomes
 \begin{equation}
-\setlength\arraycolsep{0.0025pt}  
-\left
-\begin{bmatrix} X(0) \\ X(1) \\ X(2) \\ X(3) \\ X(4) \\ X(5) \end{bmatrix}
-=
-\begin{bmatrix}
-1 & 1 & 1 & 1 & 1 & 1 \\ 1 & e^{-j2\pi(1)/6}& e^{-j2\pi(2)/6}& e^{-j2\pi (3)/6} & e^{-j2\pi (4)/6}& e^{-j2\pi (5)/6}\\1 & e^{-j2\pi(2)/6}& e^{-j2\pi(4)/6}& e^{-j2\pi (6)/6} & e^{-j2\pi (8)/6}& e^{-j2\pi (10)/6}\\1 & e^{-j2\pi(3)/6}& e^{-j2\pi(6)/6}& e^{-j2\pi (9)/6} & e^{-j2\pi (12)/6}& e^{-j2\pi (15)/6}\\1 & e^{-j2\pi(4)/6}& e^{-j2\pi(8)/6}& e^{-j2\pi (12)/6} & e^{-j2\pi (16)/6}& e^{-j2\pi (20)/6}\\1 & e^{-j2\pi(5)/6}& e^{-j2\pi(10)/6}& e^{-j2\pi (15)/6} & e^{-j2\pi (20)/6}& e^{-j2\pi (25)/6}
-\end{bmatrix}%
-\begin{bmatrix}
-1 \\ 2 \\ 3 \\ 4 \\ 2 \\1
-\end{bmatrix}
-\right
-\end{equation}
-\begin{equation}
-
 \left
 \begin{bmatrix} X(0) \\ X(1) \\ X(2) \\ X(3) \\ X(4) \\ X(5) \end{bmatrix}
 =
@@ -253,32 +238,30 @@ Now to find $H(k)$ we need to know h(n) first. So we will first calculate h(n). 
 \begin{align}
     \implies Y(z)=\frac{2(z^2+1)}{z(2z+1)}X(z)
 \end{align}
-\hspace{12mm}
+\
 Now we can find H(z) using Y(z)\\
-\hspace{12mm} i.e.,
+ i.e.,
 \begin{align}
     H(z) = \frac{Y(z)}{X(z)}
 \end{align}
 \begin{align}
- \hspace{12mm}   H(z) = \frac{2(z^2+1)}{z(2z+1)}
+ H(z) = \frac{2(z^2+1)}{z(2z+1)}
 \end{align}
 \begin{align}
-\hspace{12mm}    H(z) = \frac{1+z^{-2}}{1+\frac{1}{2}z^{-1}}
+ H(z) = \frac{1+z^{-2}}{1+\frac{1}{2}z^{-1}}
 \end{align}
-\hspace{17mm}
+
 From this we can say that h(n) is,
 \begin{align}
-\hspace{19mm}    h(n)= Z^{-1}\sbrak{\frac{1}{1+\frac{1}{2}z^{-1}} + \frac{z^{-2}}{1+\frac{1}{2}z^{-1}}}
+ h(n)= Z^{-1}\sbrak{\frac{1}{1+\frac{1}{2}z^{-1}} + \frac{z^{-2}}{1+\frac{1}{2}z^{-1}}}
 \end{align}
 \begin{align}
-\hspace{19mm}    h(n)=\sbrak{\frac{-1}{2}}^nu(n) + \sbrak{\frac{-1}{2}}^{n-2}u(n-2)
+ h(n)=\sbrak{\frac{-1}{2}}^nu(n) + \sbrak{\frac{-1}{2}}^{n-2}u(n-2)
 \end{align}
-\vspace{3mm}
-\hspace{17mm}
+\
 Now for the calculations we can \
-\hspace{17mm} assume that length of h(n) is same as length of x(n) i.e., N = 6.
+ assume that length of h(n) is same as length of x(n) i.e., N = 6.
 
-\hspace{19mm}
 Similarly Now on solving  equation \eqref{eq:2.0.3} using matrix method for each value of k we get,
 \begin{equation}
 \left
