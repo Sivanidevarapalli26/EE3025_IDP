@@ -186,4 +186,119 @@ https://github.com/Sivanidevarapalli26/EE3025_IDP/tree/main/Assignment-1/figs
     \label{figs}
 \end{figure}
 
+
+\item
+Soving DFT of x(n) and h(n) using Matrix multiplication method
+\\
+we know that
+
+\begin{align}
+    X(k) \triangleq \sum_{n=0}^{N-1}x(n)e^{-j2\pi kn/N},\quad k=0,1, \ldots, N-1
+\end{align}
+This can be expressed interms of matrices as:
+
+\begin{equation}
+\setlength\arraycolsep{0.000000001pt} 
+\begin{bmatrix} X(0) \\ X(1) \\ X(2) \\ X(3) \\ X(4) \\ X(5) \end{bmatrix}
+=
+\begin{bmatrix}
+1 & 1 & 1 & 1 & 1 & 1 \\ 1 & e^{-j2\pi(1)/N}& e^{-j2\pi(2)/N}& e^{-j2\pi (3)/N} & e^{-j2\pi (4)/N}& e^{-j2\pi (5)/N}\\1 & e^{-j2\pi(2)/N}& e^{-j2\pi(4)/N}& e^{-j2\pi (6)/N} & e^{-j2\pi (8)/N}& e^{-j2\pi (10)/N}\\1 & e^{-j2\pi(3)/N}& e^{-j2\pi(6)/N}& e^{-j2\pi (9)/N} & e^{-j2\pi (12)/N}& e^{-j2\pi (15)/N}\\1 & e^{-j2\pi(4)/N}& e^{-j2\pi(8)/N}& e^{-j2\pi (12)/N} & e^{-j2\pi (16)/N}& e^{-j2\pi (20)/N}\\1 & e^{-j2\pi(5)/N}& e^{-j2\pi(10)/N}& e^{-j2\pi (15)/N} & e^{-j2\pi (20)/N}& e^{-j2\pi (25)/N}
+\end{bmatrix}%
+\begin{bmatrix}
+x(0) \\ x(1) \\ x(2) \\ x(3) \\ x(4) \\x(5)
+\end{bmatrix}
+\right
+\end{equation}
+\item 
+Given that  x(n) = \cbrak{\underset{\uparrow}{1},2,3,4,2,1} \\ So,N=6 then above equation becomes
+\begin{equation}
+\setlength\arraycolsep{0.0025pt}  
+\left
+\begin{bmatrix} X(0) \\ X(1) \\ X(2) \\ X(3) \\ X(4) \\ X(5) \end{bmatrix}
+=
+\begin{bmatrix}
+1 & 1 & 1 & 1 & 1 & 1 \\ 1 & e^{-j2\pi(1)/6}& e^{-j2\pi(2)/6}& e^{-j2\pi (3)/6} & e^{-j2\pi (4)/6}& e^{-j2\pi (5)/6}\\1 & e^{-j2\pi(2)/6}& e^{-j2\pi(4)/6}& e^{-j2\pi (6)/6} & e^{-j2\pi (8)/6}& e^{-j2\pi (10)/6}\\1 & e^{-j2\pi(3)/6}& e^{-j2\pi(6)/6}& e^{-j2\pi (9)/6} & e^{-j2\pi (12)/6}& e^{-j2\pi (15)/6}\\1 & e^{-j2\pi(4)/6}& e^{-j2\pi(8)/6}& e^{-j2\pi (12)/6} & e^{-j2\pi (16)/6}& e^{-j2\pi (20)/6}\\1 & e^{-j2\pi(5)/6}& e^{-j2\pi(10)/6}& e^{-j2\pi (15)/6} & e^{-j2\pi (20)/6}& e^{-j2\pi (25)/6}
+\end{bmatrix}%
+\begin{bmatrix}
+1 \\ 2 \\ 3 \\ 4 \\ 2 \\1
+\end{bmatrix}
+\right
+\end{equation}
+\begin{equation}
+
+\left
+\begin{bmatrix} X(0) \\ X(1) \\ X(2) \\ X(3) \\ X(4) \\ X(5) \end{bmatrix}
+=
+\begin{bmatrix}
+1 +2+3+4+2+1 \\ 1+ (2)e^{-j\pi /3} + ... + (1)e^{-j5\pi /3}\\ 1 + (2)e^{-2j\pi /3} + ... +(1)(e^{-2j5\pi /3}\\ 1 + (2)e^{-3j\pi /3} + ... + (1)e^{-3j5\pi /3}\\ 1 + (2)e^{-4j\pi /3} + ... + (1)e^{-4j5\pi /3}\\ 1 + (2)e^{-5j\pi /3} + ... + (1)e^{-5j5\pi /3}
+\end{bmatrix}
+\end{equation}
+\
+\item
+On solving we get,
+\begin{align}
+    \implies X(0) = 13 + 0j,\\
+    X(1) = -4 - 1.732j,\\
+    X(2) = 1 + 0j,
+    \\
+    X(3) = -1 + 0j,\\
+    X(4) = 1 + 0j,\\
+    X(5) = -4 + 1.732j
+\end{align}
+\item
+Now to find $H(k)$ we need to know h(n) first. So we will first calculate h(n). For that we need to first find the Y(z) by applying Z-transform on equation $\eqref{eq:1.0.2}$ i.e.,
+\begin{align}
+    Y(z) + \frac{1}{2}z^{-1}Y(z)=X(z) + z^{-2}X(z)
+\end{align}
+\begin{align}
+    \implies Y(z)=\frac{2(z^2+1)}{z(2z+1)}X(z)
+\end{align}
+\hspace{12mm}
+Now we can find H(z) using Y(z)\\
+\hspace{12mm} i.e.,
+\begin{align}
+    H(z) = \frac{Y(z)}{X(z)}
+\end{align}
+\begin{align}
+ \hspace{12mm}   H(z) = \frac{2(z^2+1)}{z(2z+1)}
+\end{align}
+\begin{align}
+\hspace{12mm}    H(z) = \frac{1+z^{-2}}{1+\frac{1}{2}z^{-1}}
+\end{align}
+\hspace{17mm}
+From this we can say that h(n) is,
+\begin{align}
+\hspace{19mm}    h(n)= Z^{-1}\sbrak{\frac{1}{1+\frac{1}{2}z^{-1}} + \frac{z^{-2}}{1+\frac{1}{2}z^{-1}}}
+\end{align}
+\begin{align}
+\hspace{19mm}    h(n)=\sbrak{\frac{-1}{2}}^nu(n) + \sbrak{\frac{-1}{2}}^{n-2}u(n-2)
+\end{align}
+\vspace{3mm}
+\hspace{17mm}
+Now for the calculations we can \
+\hspace{17mm} assume that length of h(n) is same as length of x(n) i.e., N = 6.
+
+\hspace{19mm}
+Similarly Now on solving  equation \eqref{eq:2.0.3} using matrix method for each value of k we get,
+\begin{equation}
+\left
+\begin{bmatrix} H(0) \\ H(1) \\ H(2) \\ H(3) \\ H(4) \\ H(5) \end{bmatrix}
+=
+\begin{bmatrix}
+h(0) + h(1) + h(2) + h(3) + h(4) + h(5) \\h(0) + h(1)e^{-j\pi /3} + ... + h(5)e^{-j5\pi /3}\\h(0) + h(1)e^{-2j\pi /3} + ... + h(5)e^{-2j5\pi /3}\\h(0) + h(1)e^{-3j\pi /3} + ... + h(5)e^{-3j5\pi /3}\\
+h(0) + h(1)e^{-4j\pi /3} + ... + h(5)e^{-4j5\pi /3}\\h(0) + h(1)e^{-5j\pi /3} + ... + h(5)e^{-5j5\pi /3}
+\end{bmatrix}
+\end{equation}
+\item
+On solving we get,
+\begin{align}
+\implies H(0) = 1.28125 + 0j,\\
+ H(1) = 0.51625 - 0.5141875j,\\
+ H(2) = -0.078125 + 1.1095625j,\\
+ H(3) = 3.84375 + 0j,\\
+ H(4) = -0.071825 - 1.1095625j.\\
+ H(5) = 0.515625 + 0.5141875j
+\end{align}
+So,These values which we got are same as that of from the plots.
+\
 \end{document}
