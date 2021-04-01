@@ -162,7 +162,6 @@ So,from equation \eqref{eq:1.0.2} we can say that the Impulse response of the sy
 \begin{align}
     h(n) + \frac{1}{2}h(n-1) = \delta(n) + \delta(n-2)	
 \end{align}
-
 \item Given that DFT of a Input Signal $x(n)$ is :
 \begin{align}
     X(k) \triangleq \sum_{n=0}^{N-1}x(n)e^{-j2\pi kn/N},\quad k=0,1, \ldots, N-1 \label{eq:2.0.2}
@@ -185,13 +184,10 @@ https://github.com/Sivanidevarapalli26/EE3025_IDP/tree/main/Assignment-1/figs
     \caption{Plots of x(n) and h(n),their DFTs}
     \label{figs}
 \end{figure}
-
-
 \item
 Soving DFT of x(n) and h(n) using Matrix multiplication method
 \\
 we know that
-
 \begin{align}
     X(k) \triangleq \sum_{n=0}^{N-1}x(n)e^{-j2\pi kn/N},\quad k=0,1, \ldots, N-1
 \end{align}
@@ -205,7 +201,6 @@ Let $W_N^{nk}=e^{-j2\pi kn/N} $  then this can be expressed interms of matrices 
 \begin{bmatrix}
 x(0) \\ x(1) \\ x(2) \\ x(3) \\ x(4) \\x(5)
 \end{bmatrix}
-
 \right
 \end{equation}
 \item 
@@ -250,7 +245,6 @@ Now we can find H(z) using Y(z)\\
 \begin{align}
  H(z) = \frac{1+z^{-2}}{1+\frac{1}{2}z^{-1}}
 \end{align}
-
 From this we can say that h(n) is,
 \begin{align}
  h(n)= Z^{-1}\sbrak{\frac{1}{1+\frac{1}{2}z^{-1}} + \frac{z^{-2}}{1+\frac{1}{2}z^{-1}}}
@@ -261,7 +255,6 @@ From this we can say that h(n) is,
 \
 Now for the calculations we can \
  assume that length of h(n) is same as length of x(n) i.e., N = 6.
-
 Similarly Now on solving  equation \eqref{eq:2.0.3} using matrix method for each value of k we get,
 \begin{equation}
 \left
@@ -284,4 +277,8 @@ On solving we get,
 \end{align}
 So,These values which we got are same as that of from the plots.
 \
+\item The following is the C program for computing the  N-point radix FFT (where N is taken as  the form $2^{n}$)
+\begin{lstlisting}
+https://github.com/Sivanidevarapalli26/EE3025_IDP/tree/main/Assignment-1/Codes/ee18btech11012.c
+\end{lstlisting}
 \end{document}
